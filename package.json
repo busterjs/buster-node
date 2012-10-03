@@ -1,0 +1,27 @@
+{
+    "name": "buster-node",
+    "version": "0.1.0",
+    "description": "A minimal Buster.JS configuration for testing node modules",
+    "homepage": "http://busterjs.org/docs/buster-node",
+    "author": {
+        "name": "Christian Johansen",
+        "email": "christian@cjohansen.no",
+        "url": "http://cjohansen.no"
+    },
+    "main": "./lib/buster-node",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/busterjs/buster-node"
+    },
+    "scripts": {
+        "test": "./run-tests"
+    },
+    "dependencies": {
+        "referee": "~0.11",
+        "referee-sinon": "~0.1",
+        "buster-sinon": "~0.1",
+        "buster-test": "~0.7",
+        "stack-filter": "~0.1",
+        "formatio": "~0.6"
+    }
+}
