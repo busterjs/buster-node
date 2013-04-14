@@ -13,9 +13,6 @@
         "type": "git",
         "url": "https://github.com/busterjs/buster-node"
     },
-    "scripts": {
-        "test": "./run-tests"
-    },
     "dependencies": {
         "referee": "~0.11",
         "referee-sinon": "~0.1",
