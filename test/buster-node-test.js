@@ -9,7 +9,9 @@ buster.testCase("Test case", {
     },
 
     "it fails assertion": function () {
-        assert.equals(13, 42);
+        assert.exception(function () {
+            assert.equals(13, 42);
+        });
     },
 
     "it uses refute": function () {
@@ -17,7 +19,9 @@ buster.testCase("Test case", {
     },
 
     "it fails refutation": function () {
-        refute.equals(42, 42);
+        assert.exception(function () {
+            refute.equals(42, 42);
+        });
     },
 
     "it uses spy": function () {
@@ -30,7 +34,9 @@ buster.testCase("Test case", {
 
     "it fails sinon assertion": function () {
         var spy = this.spy();
-        assert.calledOnce(spy);
+        assert.exception(function () {
+            assert.calledOnce(spy);
+        });
     },
 
     "it uses mock expectations": function () {
@@ -40,9 +46,24 @@ buster.testCase("Test case", {
         obj.meth();
     },
 
-    "it fails mock expectation": function () {
-        var obj = { meth: function () {} };
-        this.mock(obj).expects("meth").once();
+    "it fails mock expectation": function (done) {
+        var runner = buster.testRunner.create();
+
+        var meth = function () {};
+        var obj = { meth: meth };
+
+        var tc = buster.testCase("Sandbox test", {
+            "test implicit verification": function () {
+                this.mock(obj).expects("meth").once();
+            }
+        });
+
+        runner.on("suite:end", done(function (results) {
+            refute(results.ok);
+            assert.same(obj.meth, meth);
+        }));
+
+        runner.runSuite([tc]);
     }
 });
 
@@ -54,6 +75,8 @@ describe("Spec", function () {
     });
 
     it("fails expectation", function () {
-        expect(42).toEqual(13);
+        expect(function () {
+            expect(42).toEqual(13);
+        }).toThrow();
     });
 });
