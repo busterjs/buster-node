@@ -18,12 +18,12 @@
     "test": "node test/buster-node-test.js"
   },
   "dependencies": {
-    "referee": "~1.1",
-    "referee-sinon": "~1.0",
-    "buster-sinon": "~0.7",
-    "buster-test": "~0.7",
-    "stack-filter": "~1.0",
-    "formatio": "~1.0",
-    "sinon": "~1.7"
+    "referee": "1.x",
+    "referee-sinon": "1.x",
+    "buster-sinon": "0.7.x",
+    "buster-test": "0.7.x",
+    "stack-filter": "1.x",
+    "formatio": "1.x",
+    "sinon": "1.x"
   }
 }
