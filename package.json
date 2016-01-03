@@ -17,13 +17,16 @@
   "scripts": {
     "test": "node test/buster-node-test.js"
   },
+  "engines": {
+    "node": ">= 4"
+  },
   "dependencies": {
+    "buster-sinon": "0.7.x",
+    "buster-test": "0.8.x",
+    "formatio": "1.x",
     "referee": "1.x",
     "referee-sinon": "1.x",
-    "buster-sinon": "0.7.x",
-    "buster-test": "https://github.com/busterjs/buster-test.git#update-deps",
-    "stack-filter": "1.x",
-    "formatio": "1.x",
-    "sinon": "1.x"
+    "sinon": "1.x",
+    "stack-filter": "1.x"
   }
 }
